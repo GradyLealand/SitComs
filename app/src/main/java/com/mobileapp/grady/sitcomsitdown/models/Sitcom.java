@@ -1,9 +1,12 @@
 package com.mobileapp.grady.sitcomsitdown.models;
 
+import java.util.List;
+
 public class Sitcom {
     private int id;
     private String name;
     private String image;
+    private List<Character> characters;
 
     //A list of character Models
 
@@ -45,5 +48,11 @@ public class Sitcom {
     }
     public void setImage(String image) {
         this.image = image;
+    }
+    public List<Character> getCharacters() {
+        return characters;
+    }
+    public void setCharacters(List<Character> characters) {
+        this.characters = characters;
     }
 }
