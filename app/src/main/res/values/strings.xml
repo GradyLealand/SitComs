@@ -2,19 +2,36 @@
     <string name="app_name">Sitcom Sitdown</string>
 
     <string-array name="sitcom_names">
-        <item>Happy Days</item>
-        <item>Sanford and Son</item>
-        <item>Cheers</item>
-        <item>All in the family</item>
-        <item>Family Matters</item>
         <item>Alf</item>
-        <item>Full House</item>
-        <item>Whos's the Boss?</item>
-        <item>Growing Pains</item>
+        <item>All in the family</item>
+        <item>Cheers</item>
         <item>Diffrent Strokes</item>
+        <item>Family Matters</item>
+        <item>Full House</item>
+        <item>Growing Pains</item>
+        <item>Happy Days</item>
         <item>Married... With Children</item>
-        <item>The Jeffersons</item>
         <item>M*A*S*H</item>
+        <item>Sanford and Son</item>
         <item>TAXI</item>
+        <item>The Jeffersons</item>
+        <item>Whos's the Boss?</item>
     </string-array>
+
+    <integer-array name="cover_ids">
+        <item>2131165268</item>
+        <item>2131165269</item>
+        <item>2131165270</item>
+        <item>2131165271</item>
+        <item>2131165272</item>
+        <item>2131165273</item>
+        <item>2131165274</item>
+        <item>2131165275</item>
+        <item>2131165278</item>
+        <item>2131165279</item>
+        <item>2131165292</item>
+        <item>2131165293</item>
+        <item>2131165294</item>
+        <item>2131165297</item>
+    </integer-array>
 </resources>

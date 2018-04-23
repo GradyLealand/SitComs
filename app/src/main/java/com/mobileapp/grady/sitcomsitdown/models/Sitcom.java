@@ -5,7 +5,7 @@ import java.util.List;
 public class Sitcom {
     private int id;
     private String name;
-    private String image;
+    private int image;
     private List<Character> characters;
 
     //A list of character Models
@@ -21,7 +21,7 @@ public class Sitcom {
      * @param name The sitcoms title
      * @param image A path to the sitcoms logo
      */
-    public Sitcom(int id, String name, String image)
+    public Sitcom(int id, String name, int image)
     {
         this.id = id;
         this.name = name;
@@ -43,10 +43,10 @@ public class Sitcom {
     public void setName(String name) {
         this.name = name;
     }
-    public String getImage() {
+    public int getImage() {
         return image;
     }
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
     public List<Character> getCharacters() {

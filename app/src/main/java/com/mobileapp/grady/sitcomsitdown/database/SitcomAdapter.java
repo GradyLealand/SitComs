@@ -66,10 +66,9 @@ public class SitcomAdapter extends RecyclerView.Adapter<SitcomAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull SitcomAdapter.ViewHolder holder, int position)
     {
-        int x = R.drawable.alf;
         final Sitcom sitcom = mSitcomList.get(position);
         holder.tvSitcomName.setText(sitcom.getName());
-        Picasso.with(mContext).load(x).placeholder(R.mipmap.ic_launcher).into(holder.ivSitcomImage);
+        Picasso.with(mContext).load(sitcom.getImage()).placeholder(R.mipmap.ic_launcher).into(holder.ivSitcomImage);
 
         //set onClick listener
         holder.layout.setOnClickListener(new View.OnClickListener()

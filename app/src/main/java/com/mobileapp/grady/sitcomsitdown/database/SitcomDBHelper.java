@@ -45,7 +45,7 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
         db.execSQL(" CREATE TABLE " + SITCOM_TABLE_NAME + " (" +
                 COLUMN_SITCOM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_SITCOM_NAME + " TEXT NOT NULL, " +
-                COLUMN_SITCOM_IMAGE + " TEXT NOT NULL);"
+                COLUMN_SITCOM_IMAGE + " INTEGER NOT NULL);"
         );
 
         db.execSQL(" CREATE TABLE " + CHARACTER_TABLE_NAME + " (" +
@@ -57,13 +57,14 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
 
         //get sitcom names from resource files
         String[] names = dbContext.getResources().getStringArray(R.array.sitcom_names) ;
+        int[] covers = dbContext.getResources().getIntArray(R.array.cover_ids);
 
         ContentValues values = new ContentValues();
 
         for(int i = 0; i < names.length; i++ )
         {
             values.put(COLUMN_SITCOM_NAME, names[i]);
-            values.put(COLUMN_SITCOM_IMAGE, R.mipmap.ic_launcher_round);
+            values.put(COLUMN_SITCOM_IMAGE, covers[i]);
             db.insert(SITCOM_TABLE_NAME,null, values);
         }
 //        db.close();
@@ -99,7 +100,7 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
                 //get sitcom information from the db
                 int id = cursor.getInt(cursor.getColumnIndex(COLUMN_SITCOM_ID));
                 String name = cursor.getString(cursor.getColumnIndex(COLUMN_SITCOM_NAME));
-                String image = cursor.getString(cursor.getColumnIndex(COLUMN_SITCOM_IMAGE));
+                int image = cursor.getInt(cursor.getColumnIndex(COLUMN_SITCOM_IMAGE));
 
                 //get character list for sitcom
 
