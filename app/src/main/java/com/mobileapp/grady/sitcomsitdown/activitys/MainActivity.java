@@ -32,10 +32,15 @@ public class MainActivity extends AppCompatActivity {
         populaterecyclerView();
     }
 
+    /**
+     * Populate recycler view
+     */
     private void populaterecyclerView()
     {
         dbHelper = new SitcomDBHelper(this);
         adapter = new SitcomAdapter(dbHelper.getSitcoms(), this, mRecyclerView);
-
+        mRecyclerView.setAdapter(adapter);
     }
+
+
 }
