@@ -16,29 +16,37 @@
     card_view:cardMaxElevation="7dp"
     card_view:contentPadding="7dp">
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:columnCount="1"
-        android:rowCount="3">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/iv_sitcom_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center_horizontal"
-
-            android:contentDescription="Filler"
+            android:id="@+id/imageView"
+            android:layout_width="176dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             app:srcCompat="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/tv_sitcom_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Test Boi"
-            android:textSize="18sp" />
-    </GridLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tvDetailsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name: "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvDetailsDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Details:" />
+
+        </LinearLayout>
+    </LinearLayout>
 </android.support.v7.widget.CardView>
