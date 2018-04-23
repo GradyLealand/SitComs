@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Sitcom Sitdown</string>
+
+    <string-array name="sitcom_names">
+        <item>Happy Days</item>
+        <item>Sanford and Son</item>
+        <item>Cheers</item>
+        <item>All in the family</item>
+        <item>Family Matters</item>
+        <item>Alf</item>
+        <item>Full House</item>
+        <item>Whos's the Boss?</item>
+        <item>Growing Pains</item>
+        <item>Diffrent Strokes</item>
+        <item>Married... With Children</item>
+        <item>The Jeffersons</item>
+        <item>M*A*S*H</item>
+        <item>TAXI</item>
+    </string-array>
 </resources>

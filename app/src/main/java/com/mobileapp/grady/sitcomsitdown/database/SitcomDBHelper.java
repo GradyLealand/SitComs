@@ -1,5 +1,6 @@
 package com.mobileapp.grady.sitcomsitdown.database;
 
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -7,6 +8,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+
+import com.mobileapp.grady.sitcomsitdown.R;
 import com.mobileapp.grady.sitcomsitdown.models.Sitcom;
 import com.mobileapp.grady.sitcomsitdown.models.Character;
 
@@ -22,6 +26,9 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
     private static final String COLUMN_CHARACTER_NAME = "character_name";
     private static final String COLUMN_CHARACTER_DETAILS = "character_details";
     private static final String COLUMN_CHARACTER_IMAGE = "character_image";
+    private Context dbContext;
+
+
 
     /**
      * Database constructor
@@ -30,6 +37,7 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
     public SitcomDBHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        dbContext = context;
     }
 
     @Override
@@ -46,6 +54,26 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
                 COLUMN_CHARACTER_DETAILS + " TEXT NOT NULL, " +
                 COLUMN_CHARACTER_IMAGE + " TEXT NOT NULL);"
         );
+
+        //get sitcom names from resource files
+        String[] names = dbContext.getResources().getStringArray(R.array.sitcom_names) ;
+
+        ContentValues values = new ContentValues();
+
+        for(int i = 0; i < names.length; i++ )
+        {
+            values.put(COLUMN_SITCOM_NAME, names[i]);
+            values.put(COLUMN_SITCOM_IMAGE, R.mipmap.ic_launcher_round);
+            db.insert(SITCOM_TABLE_NAME,null, values);
+        }
+//        db.close();
+//
+//        populateDB();
+    }
+
+    private void populateDB()
+    {
+
     }
 
     @Override

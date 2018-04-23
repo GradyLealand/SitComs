@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -55,6 +56,7 @@ public class SitcomAdapter extends RecyclerView.Adapter<SitcomAdapter.ViewHolder
     @Override
     public SitcomAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
+
         LayoutInflater inflater = LayoutInflater.from( parent.getContext());
         View v = inflater.inflate(R.layout.title_card, parent, false);
         ViewHolder vh = new ViewHolder(v);
@@ -64,6 +66,11 @@ public class SitcomAdapter extends RecyclerView.Adapter<SitcomAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull SitcomAdapter.ViewHolder holder, int position)
     {
+        int x = R.drawable.alf;
+        final Sitcom sitcom = mSitcomList.get(position);
+        holder.tvSitcomName.setText(sitcom.getName());
+        Picasso.with(mContext).load(x).placeholder(R.mipmap.ic_launcher).into(holder.ivSitcomImage);
+
         //set onClick listener
         holder.layout.setOnClickListener(new View.OnClickListener()
         {
