@@ -41,6 +41,10 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
         dbContext = context;
     }
 
+    /**
+     * Build the DB
+     * @param db The DB to be built
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(" CREATE TABLE " + SITCOM_TABLE_NAME + " (" +
@@ -57,7 +61,7 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
                 COLUMN_CHARACTER_SITCOM_ID + " INTEGER NOT NULL);"
         );
 
-        //get sitcom names from resource files
+        //get sitcom table default information
         String[] names = dbContext.getResources().getStringArray(R.array.sitcom_names) ;
         int[] covers = dbContext.getResources().getIntArray(R.array.cover_ids);
 
@@ -71,10 +75,12 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
             db.insert(SITCOM_TABLE_NAME,null, values);
         }
 
+        //get character table default information
         String[] characters =  dbContext.getResources().getStringArray(R.array.charcter_names);
         String[] details =  dbContext.getResources().getStringArray(R.array.character_details);
         int [] sitcomId =  dbContext.getResources().getIntArray(R.array.character_sitcom_ids);
 
+        //populate character table
         for(int i = 0; i < names.length; i++ )
         {
             values.put(COLUMN_CHARACTER_NAME, characters[i]);
@@ -82,13 +88,6 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
             values.put(COLUMN_CHARACTER_SITCOM_ID, sitcomId[i]);
             db.insert(CHARACTER_TABLE_NAME,null, values);
         }
-
-        //populate characters table
-
-    }
-
-    private void populateDB()
-    {
 
     }
 
@@ -99,6 +98,10 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
         this.onCreate(db);
     }
 
+    /**
+     * Get a list of all sitcoms in the DB
+     * @return A list of sitcoms
+     */
     public List<Sitcom> getSitcoms()
     {
         String query = "SELECT  * FROM " + SITCOM_TABLE_NAME;
@@ -117,8 +120,6 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
                 String name = cursor.getString(cursor.getColumnIndex(COLUMN_SITCOM_NAME));
                 int image = cursor.getInt(cursor.getColumnIndex(COLUMN_SITCOM_IMAGE));
 
-                //get character list for sitcom
-
                 //build new sitcom object and add it to the list
                 sitcom = new Sitcom(id, name, image);
                 sitcomList.add(sitcom);
@@ -126,5 +127,38 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
             }while (cursor.moveToNext());
         }
         return sitcomList;
+    }
+
+    /**
+     * Get a list of characters for the selected sitcom
+     * @param id The selected sitcoms id
+     * @return A list of characters
+     */
+    public List<Character> getCharacters(int id)
+    {
+        String query = "SELECT * FROM " + CHARACTER_TABLE_NAME + " WHERE " +
+                COLUMN_CHARACTER_SITCOM_ID + " = " + id;
+
+        List<Character> charcterList = new LinkedList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        Character character;
+
+        if(cursor.moveToFirst())
+        {
+            do
+            {
+                //get characters information from the DB
+                int charId = cursor.getInt(cursor.getColumnIndex(COLUMN_CHARACTER_ID));
+                String name = cursor.getString(cursor.getColumnIndex(COLUMN_CHARACTER_NAME));
+                String details = cursor.getString(cursor.getColumnIndex(COLUMN_CHARACTER_DETAILS));
+
+                //add character to the list
+                character = new Character(charId, name, details, "");
+                charcterList.add(character);
+
+            }while (cursor.moveToNext());
+        }
+        return charcterList;
     }
 }

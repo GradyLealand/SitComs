@@ -3,7 +3,7 @@ package com.mobileapp.grady.sitcomsitdown.models;
 public class Character {
     private int id;
     private String name;
-    private String about;
+    private String details;
     private String image;
 
     /**
@@ -21,7 +21,7 @@ public class Character {
     public Character(int id, String name, String about, String image) {
         this.id = id;
         this.name = name;
-        this.about = about;
+        this.details = about;
         this.image = image;
     }
 
@@ -40,11 +40,11 @@ public class Character {
     public void setName(String name) {
         this.name = name;
     }
-    public String getAbout() {
-        return about;
+    public String getDetails() {
+        return details;
     }
-    public void setAbout(String about) {
-        this.about = about;
+    public void setDetails(String about) {
+        this.details = about;
     }
     public String getImage() {
         return image;
