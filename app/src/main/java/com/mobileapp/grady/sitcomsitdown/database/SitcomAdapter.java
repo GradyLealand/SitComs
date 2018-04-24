@@ -27,11 +27,17 @@ public class SitcomAdapter extends RecyclerView.Adapter<SitcomAdapter.ViewHolder
     private Context mContext;
     private RecyclerView mRecyclerView;
 
-    public SitcomAdapter(List<Sitcom> sitcoms, Context context, RecyclerView mRecyclerView)
+    /**
+     * Constructor for SitcomAdaptor
+     * @param sitcoms A list of Sitcoms
+     * @param context The app context
+     * @param recyclerView A recycler view
+     */
+    public SitcomAdapter(List<Sitcom> sitcoms, Context context, RecyclerView recyclerView)
     {
         mSitcomList = sitcoms;
         mContext = context;
-        this.mRecyclerView = mRecyclerView;
+        mRecyclerView = recyclerView;
     }
 
     /**
@@ -53,6 +59,12 @@ public class SitcomAdapter extends RecyclerView.Adapter<SitcomAdapter.ViewHolder
         }
     }
 
+    /**
+     * On Create for SitcomAdaptor view holder
+     * @param parent Recycler view
+     * @param viewType Type of view
+     * @return ViewHolder
+     */
     @NonNull
     @Override
     public SitcomAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)

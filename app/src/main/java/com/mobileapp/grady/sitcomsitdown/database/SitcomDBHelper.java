@@ -1,6 +1,5 @@
 package com.mobileapp.grady.sitcomsitdown.database;
 
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -8,11 +7,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 
 import com.mobileapp.grady.sitcomsitdown.R;
 import com.mobileapp.grady.sitcomsitdown.models.Sitcom;
-import com.mobileapp.grady.sitcomsitdown.models.Character;
+import com.mobileapp.grady.sitcomsitdown.models.SitcomCharacter;
 
 public class SitcomDBHelper extends SQLiteOpenHelper{
     public static final String DATABASE_NAME = "sitcom.db";
@@ -134,15 +132,15 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
      * @param id The selected sitcoms id
      * @return A list of characters
      */
-    public List<Character> getCharacters(int id)
+    public List<SitcomCharacter> getCharacters(int id)
     {
         String query = "SELECT * FROM " + CHARACTER_TABLE_NAME + " WHERE " +
                 COLUMN_CHARACTER_SITCOM_ID + " = " + id;
 
-        List<Character> charcterList = new LinkedList<>();
+        List<SitcomCharacter> charcterList = new LinkedList<>();
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        Character character;
+        SitcomCharacter sitcomCharacter;
 
         if(cursor.moveToFirst())
         {
@@ -154,8 +152,8 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
                 String details = cursor.getString(cursor.getColumnIndex(COLUMN_CHARACTER_DETAILS));
 
                 //add character to the list
-                character = new Character(charId, name, details, "");
-                charcterList.add(character);
+                sitcomCharacter = new SitcomCharacter(charId, name, details, "");
+                charcterList.add(sitcomCharacter);
 
             }while (cursor.moveToNext());
         }

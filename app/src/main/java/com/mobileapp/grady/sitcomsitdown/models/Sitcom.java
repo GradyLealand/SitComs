@@ -6,7 +6,7 @@ public class Sitcom {
     private int id;
     private String name;
     private int image;
-    private List<Character> characters;
+    private List<SitcomCharacter> sitcomCharacters;
 
     //A list of character Models
 
@@ -49,10 +49,10 @@ public class Sitcom {
     public void setImage(int image) {
         this.image = image;
     }
-    public List<Character> getCharacters() {
-        return characters;
+    public List<SitcomCharacter> getSitcomCharacters() {
+        return sitcomCharacters;
     }
-    public void setCharacters(List<Character> characters) {
-        this.characters = characters;
+    public void setSitcomCharacters(List<SitcomCharacter> sitcomCharacters) {
+        this.sitcomCharacters = sitcomCharacters;
     }
 }

@@ -1,6 +1,6 @@
 package com.mobileapp.grady.sitcomsitdown.models;
 
-public class Character {
+public class SitcomCharacter {
     private int id;
     private String name;
     private String details;
@@ -9,7 +9,7 @@ public class Character {
     /**
      * Default constructor
      */
-    public Character() { }
+    public SitcomCharacter() { }
 
     /**
      * Constructor for Character model
@@ -18,7 +18,7 @@ public class Character {
      * @param about Some information bout the character
      * @param image The image path for the character
      */
-    public Character(int id, String name, String about, String image) {
+    public SitcomCharacter(int id, String name, String about, String image) {
         this.id = id;
         this.name = name;
         this.details = about;
