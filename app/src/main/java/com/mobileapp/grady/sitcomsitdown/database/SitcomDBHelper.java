@@ -26,6 +26,7 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
     private static final String COLUMN_CHARACTER_NAME = "character_name";
     private static final String COLUMN_CHARACTER_DETAILS = "character_details";
     private static final String COLUMN_CHARACTER_IMAGE = "character_image";
+    private static final String COLUMN_CHARACTER_SITCOM_ID = "sitcom_id";
     private Context dbContext;
 
 
@@ -52,7 +53,8 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
                 COLUMN_CHARACTER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_CHARACTER_NAME + " TEXT NOT NULL, " +
                 COLUMN_CHARACTER_DETAILS + " TEXT NOT NULL, " +
-                COLUMN_CHARACTER_IMAGE + " TEXT NOT NULL);"
+                COLUMN_CHARACTER_IMAGE + " TEXT," +
+                COLUMN_CHARACTER_SITCOM_ID + " INTEGER NOT NULL);"
         );
 
         //get sitcom names from resource files
@@ -61,15 +63,28 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
 
         ContentValues values = new ContentValues();
 
+        //populate sitcoms table
         for(int i = 0; i < names.length; i++ )
         {
             values.put(COLUMN_SITCOM_NAME, names[i]);
             values.put(COLUMN_SITCOM_IMAGE, covers[i]);
             db.insert(SITCOM_TABLE_NAME,null, values);
         }
-//        db.close();
-//
-//        populateDB();
+
+        String[] characters =  dbContext.getResources().getStringArray(R.array.charcter_names);
+        String[] details =  dbContext.getResources().getStringArray(R.array.character_details);
+        int [] sitcomId =  dbContext.getResources().getIntArray(R.array.character_sitcom_ids);
+
+        for(int i = 0; i < names.length; i++ )
+        {
+            values.put(COLUMN_CHARACTER_NAME, characters[i]);
+            values.put(COLUMN_CHARACTER_DETAILS, details[i]);
+            values.put(COLUMN_CHARACTER_SITCOM_ID, sitcomId[i]);
+            db.insert(CHARACTER_TABLE_NAME,null, values);
+        }
+
+        //populate characters table
+
     }
 
     private void populateDB()

@@ -34,4 +34,58 @@
         <item>2131165294</item>
         <item>2131165297</item>
     </integer-array>
+
+    <integer-array name="character_sitcom_ids">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="charcter_names">
+        <item>ALF</item>
+        <item>Williams Tanner</item>
+        <item>Lynn Tanner</item>
+        <item>Brian Tanner</item>
+        <item>Kathrine Tanner</item>
+        <item>Archie Bunker</item>
+        <item>Edith Bunker</item>
+        <item>Gloria Stivic</item>
+        <item>Michael Stivic</item>
+        <item>Sam Malone</item>
+        <item>Diane Chambers</item>
+        <item>Coach Ernie Pantusso</item>
+        <item>Carla Tortelli</item>
+        <item>Norm Peterson</item>
+        <item>Cliff Clavin</item>
+    </string-array>
+
+    <string-array name="character_details">
+        <item>Portrayed by Paul Fusco. A terrifying cat eating alien.</item>
+        <item>Played by Max Wright. The father of the Tanner family.</item>
+        <item>Played bt Andrea Elson. The eldest child.</item>
+        <item>Played by Benji Gregory. The middle son.</item>
+        <item>Played by Anne Schedeen. The mother of the Tanner family.</item>
+        <item>Played by Carroll O'Conner. A close minded "lovable bigot".</item>
+        <item>Played by Jean Stapleton. Archie's wife, She is the opposite of Archie.</item>
+        <item>Played by Sally Struthers. Archie and Edith's daughter.</item>
+        <item>Played by Rob Reiner. Gloria's husban.</item>
+        <item>Played by Ted Danson. A bartender and owner of Cheers.</item>
+        <item>Played by Shelly Long. A grad student of Boston University.</item>
+        <item>Played by Nicholas Colasanto. A bartender and Cheers and retired baseball coach.</item>
+        <item>Played by Rehea Perlman. A wisecracking, cynical cocktail waitress.</item>
+        <item>Played by George Wendt. A bar regular who works and an accountant.</item>
+        <item>Played by John Ratzenberger. A bar regular who works as a mail man.</item>
+    </string-array>
 </resources>

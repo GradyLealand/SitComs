@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mobileapp.grady.sitcomsitdown.R;
+import com.mobileapp.grady.sitcomsitdown.activitys.DetailsActivity;
 import com.mobileapp.grady.sitcomsitdown.activitys.MainActivity;
 import com.mobileapp.grady.sitcomsitdown.models.Sitcom;
 import com.squareup.picasso.Picasso;
@@ -75,11 +76,16 @@ public class SitcomAdapter extends RecyclerView.Adapter<SitcomAdapter.ViewHolder
         {
             public void onClick(View v)
             {
-
+                //go to details page
+                Intent goToDetails = new Intent(mContext, DetailsActivity.class);
+                goToDetails.putExtra("SITCOM_ID", sitcom.getId());
+                int x = sitcom.getId();
+                mContext.startActivity(goToDetails);
             }
         });
 
     }
+
 
     @Override
     public int getItemCount() {
