@@ -25,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
         //initialize variables
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
         mRecyclerView.setHasFixedSize(true);
+
         //set a grid layout manager
         mLayoutManager = new GridLayoutManager(this.getApplicationContext(), GRID_ROWS);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
         //populate the recycler view
         populaterecyclerView();
     }
