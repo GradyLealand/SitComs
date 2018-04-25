@@ -16,7 +16,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private long sitcomId;
 
-    private RecyclerView mRecyclerView;
+    private RecyclerView dRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,12 @@ public class DetailsActivity extends AppCompatActivity {
         sitcomId = getIntent().getIntExtra("SITCOM_ID", 1);
 
         //initialize variables
-        mRecyclerView = findViewById(R.id.rv_details);
-        mRecyclerView.setHasFixedSize(true);
+        dRecyclerView = findViewById(R.id.rv_details);
+        dRecyclerView.setHasFixedSize(true);
 
         //set a grid layout manager
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        dRecyclerView.setLayoutManager(mLayoutManager);
 
         //populate the recycler view
         populateRecyclerView();
@@ -43,8 +43,8 @@ public class DetailsActivity extends AppCompatActivity {
     private void populateRecyclerView()
     {
         SitcomDBHelper dbHelper = new SitcomDBHelper(this);
-        DetailsAdapter adapter = new DetailsAdapter(dbHelper.getCharacters((int) sitcomId), this, mRecyclerView);
-        mRecyclerView.setAdapter(adapter);
+        DetailsAdapter adapter = new DetailsAdapter(dbHelper.getCharacters((int) sitcomId), this, dRecyclerView);
+        dRecyclerView.setAdapter(adapter);
     }
 
 }

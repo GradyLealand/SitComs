@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Sitcom Sitdown</string>
+    <string name="details_name">Name: </string>
+    <string name="details_details">About: </string>
 
     <string-array name="sitcom_names">
         <item>Alf</item>
@@ -18,22 +20,22 @@
         <item>Whos's the Boss?</item>
     </string-array>
 
-    <integer-array name="cover_ids">
-        <item>2131165268</item>
-        <item>2131165269</item>
-        <item>2131165270</item>
-        <item>2131165271</item>
-        <item>2131165272</item>
-        <item>2131165273</item>
-        <item>2131165274</item>
-        <item>2131165275</item>
-        <item>2131165278</item>
-        <item>2131165279</item>
-        <item>2131165292</item>
-        <item>2131165293</item>
-        <item>2131165294</item>
-        <item>2131165297</item>
-    </integer-array>
+    <string-array name="cover_img">
+        <item>alf</item>
+        <item>allinthefamily</item>
+        <item>cheers</item>
+        <item>differentstrokes</item>
+        <item>familymatters</item>
+        <item>fullhouse</item>
+        <item>growingpains</item>
+        <item>happydays</item>
+        <item>marriedwithchildren</item>
+        <item>mash</item>
+        <item>sanfordandson</item>
+        <item>taxi</item>
+        <item>thejeffersons</item>
+        <item>whostheboss</item>
+    </string-array>
 
     <integer-array name="character_sitcom_ids">
         <item>1</item>
@@ -55,7 +57,7 @@
 
     <string-array name="charcter_names">
         <item>ALF</item>
-        <item>Williams Tanner</item>
+        <item>William Tanner</item>
         <item>Lynn Tanner</item>
         <item>Brian Tanner</item>
         <item>Kathrine Tanner</item>
@@ -74,7 +76,7 @@
     <string-array name="character_details">
         <item>Portrayed by Paul Fusco. A terrifying cat eating alien.</item>
         <item>Played by Max Wright. The father of the Tanner family.</item>
-        <item>Played bt Andrea Elson. The eldest child.</item>
+        <item>Played by Andrea Elson. The eldest child.</item>
         <item>Played by Benji Gregory. The middle son.</item>
         <item>Played by Anne Schedeen. The mother of the Tanner family.</item>
         <item>Played by Carroll O'Conner. A close minded "lovable bigot".</item>
@@ -87,5 +89,23 @@
         <item>Played by Rehea Perlman. A wisecracking, cynical cocktail waitress.</item>
         <item>Played by George Wendt. A bar regular who works and an accountant.</item>
         <item>Played by John Ratzenberger. A bar regular who works as a mail man.</item>
+    </string-array>
+
+    <string-array name="character_img">
+        <item>alf_alf</item>
+        <item>alf_william</item>
+        <item>alf_lynn</item>
+        <item>alf_brian</item>
+        <item>alf_kat</item>
+        <item>allinthefamily_archie</item>
+        <item>allinthefamily_edith</item>
+        <item>allinthefamily_gloria</item>
+        <item>allinthefamily_michael</item>
+        <item>cheers_sam</item>
+        <item>cheers_diane</item>
+        <item>cheers_ernie</item>
+        <item>cheers_carla</item>
+        <item>cheers_norm</item>
+        <item>cheers_cliff</item>
     </string-array>
 </resources>

@@ -4,7 +4,7 @@ public class SitcomCharacter {
     private int id;
     private String name;
     private String details;
-    private String image;
+    private int image;
 
     /**
      * Default constructor
@@ -18,7 +18,7 @@ public class SitcomCharacter {
      * @param about Some information bout the character
      * @param image The image path for the character
      */
-    public SitcomCharacter(int id, String name, String about, String image) {
+    public SitcomCharacter(int id, String name, String about, int image) {
         this.id = id;
         this.name = name;
         this.details = about;
@@ -46,10 +46,10 @@ public class SitcomCharacter {
     public void setDetails(String about) {
         this.details = about;
     }
-    public String getImage() {
+    public int getImage() {
         return image;
     }
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 }

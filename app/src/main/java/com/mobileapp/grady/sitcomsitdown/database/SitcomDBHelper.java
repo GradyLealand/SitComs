@@ -58,36 +58,47 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
                 COLUMN_CHARACTER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_CHARACTER_NAME + " TEXT NOT NULL, " +
                 COLUMN_CHARACTER_DETAILS + " TEXT NOT NULL, " +
-                COLUMN_CHARACTER_IMAGE + " TEXT," +
+                COLUMN_CHARACTER_IMAGE + " INTEGER NOT NULL," +
                 COLUMN_CHARACTER_SITCOM_ID + " INTEGER NOT NULL);"
         );
 
         //get sitcom table default information
         String[] names = dbContext.getResources().getStringArray(R.array.sitcom_names) ;
-        int[] covers = dbContext.getResources().getIntArray(R.array.cover_ids);
+        String[] covers = dbContext.getResources().getStringArray(R.array.cover_img);
 
         ContentValues values = new ContentValues();
 
         //populate sitcoms table
         for(int i = 0; i < names.length; i++ )
         {
+            //get int id of images
+            int ressourceId = dbContext.getResources().getIdentifier(
+                    covers[i],
+                    "drawable",
+                    dbContext.getPackageName());
             values.put(COLUMN_SITCOM_NAME, names[i]);
-            values.put(COLUMN_SITCOM_IMAGE, covers[i]);
+            values.put(COLUMN_SITCOM_IMAGE, ressourceId);
             db.insert(SITCOM_TABLE_NAME,null, values);
         }
 
         //get character table default information
         String[] characters =  dbContext.getResources().getStringArray(R.array.charcter_names);
         String[] details =  dbContext.getResources().getStringArray(R.array.character_details);
+        String[] characreImg = dbContext.getResources().getStringArray(R.array.character_img);
         int [] sitcomId =  dbContext.getResources().getIntArray(R.array.character_sitcom_ids);
 
         //populate character table
         for(int i = 0; i < characters.length; i++ )
         {
+            //get int id of images
+            int ressourceId = dbContext.getResources().getIdentifier(
+                    characreImg[i],
+                    "drawable",
+                    dbContext.getPackageName());
             values.clear();
             values.put(COLUMN_CHARACTER_NAME, characters[i]);
             values.put(COLUMN_CHARACTER_DETAILS, details[i]);
-            values.put(COLUMN_CHARACTER_IMAGE, "");
+            values.put(COLUMN_CHARACTER_IMAGE, ressourceId);
             values.put(COLUMN_CHARACTER_SITCOM_ID, sitcomId[i]);
             try{
                 db.insert(CHARACTER_TABLE_NAME,null, values);
@@ -135,6 +146,7 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
 
             }while (cursor.moveToNext());
         }
+        cursor.close();
         return sitcomList;
     }
 
@@ -145,7 +157,8 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
      */
     public List<SitcomCharacter> getCharacters(int id)
     {
-        String query = "SELECT * FROM " + SITCOM_TABLE_NAME;
+        String query = "SELECT * FROM " + CHARACTER_TABLE_NAME
+                        + " WHERE " + COLUMN_CHARACTER_SITCOM_ID + " = " + id;
 
         List<SitcomCharacter> characterList = new LinkedList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -157,16 +170,18 @@ public class SitcomDBHelper extends SQLiteOpenHelper{
             do
             {
                 //get characters information from the DB
-                int charId = cursor.getInt(cursor.getColumnIndex(COLUMN_SITCOM_ID));
-                String name = cursor.getString(cursor.getColumnIndex(COLUMN_SITCOM_NAME));
-                String details = cursor.getString(cursor.getColumnIndex(COLUMN_SITCOM_NAME));
+                int charId = cursor.getInt(cursor.getColumnIndex(COLUMN_CHARACTER_ID));
+                int charImg = cursor.getInt(cursor.getColumnIndex(COLUMN_CHARACTER_IMAGE));
+                String name = cursor.getString(cursor.getColumnIndex(COLUMN_CHARACTER_NAME));
+                String details = cursor.getString(cursor.getColumnIndex(COLUMN_CHARACTER_DETAILS));
 
                 //add character to the list
-                sitcomCharacter = new SitcomCharacter(charId, name, details, "");
+                sitcomCharacter = new SitcomCharacter(charId, name, details, charImg);
                 characterList.add(sitcomCharacter);
 
             }while (cursor.moveToNext());
         }
+        cursor.close();
         return characterList;
     }
 }

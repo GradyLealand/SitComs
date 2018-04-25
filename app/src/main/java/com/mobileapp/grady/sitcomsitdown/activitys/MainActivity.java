@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         //set a grid layout manager
         mLayoutManager = new GridLayoutManager(this.getApplicationContext(), GRID_ROWS);
         mRecyclerView.setLayoutManager(mLayoutManager);
+        this.deleteDatabase("sitcom.db");
 
         //populate the recycler view
         populaterecyclerView();

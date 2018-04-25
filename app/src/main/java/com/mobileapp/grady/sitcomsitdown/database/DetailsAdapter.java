@@ -69,7 +69,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
     {
 
         LayoutInflater inflater = LayoutInflater.from( parent.getContext());
-        View v = inflater.inflate(R.layout.title_card, parent, false);
+        View v = inflater.inflate(R.layout.details_card, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -85,7 +85,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mCharacterList.size();
     }
 }
 
